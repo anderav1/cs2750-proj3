@@ -16,13 +16,29 @@ int main(int argc, char** argv) {
 		switch (opt) {
 			case 'h':
 				hflag = 1;
+				printf("h flag set\n");
 				break;
 			case 't':
 				tflag = 1;
+				printf("t flag set\n");
 				break;
 			default:
 				abort();
 		}
 	}
+	
+	// if help option is selected, display instructions
+	// for running the program
+	if (hflag) {
+		printf("Program Help:\n");
+		// add more instructions here
+	}
+
+	// if test option is selected, run all tests
+	if (tflag) {
+		printf("Commencing unit tests\n");
+		// runTests();
+	}
+
 }
 
