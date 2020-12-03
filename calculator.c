@@ -40,5 +40,28 @@ int main(int argc, char** argv) {
 		// runTests();
 	}
 
+	// prompt user to choose operation and enter two operands
+	printf("\nArithmetic Operations:\n\n");
+	printf("1. Addition \t\tA + B\n");
+	printf("2. Subtraction \t\tA - B\n");
+	printf("3. Multiplication \tA * B\n");
+	printf("4. Division \t\tA / B\n");
+	printf("5. Modulus \t\tA \% B\n");
+
+	printf("\nEnter the number of the option you would like to choose");
+	printf(" as well as two integer operands, separated by spaces\n");
+	printf("(e.g., entering \"2 5 8\" will prompt the program to ");
+	printf("perform subtraction on operands 5 and 8)\n");
+
+	// check for valid input
+	int op;
+	char signs[] = {'+', '-', '*', '/', '%'};
+	int x;
+	int y;
+	scanf("%d %d %d", &op, &x, &y);
+
+	printf("input 1 is: %d\n", op);
+	printf("input 2 is: %d\n", x);
+	printf("input 3 is: %d\n", y);
 }
 
