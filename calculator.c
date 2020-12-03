@@ -5,12 +5,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "calculator.h"
 
 int main(int argc, char** argv) {
 	int hflag = 0;
 	int tflag = 0;
 	int opt;
-	double result;
+	int result;
 	
 	while ((opt = getopt(argc, argv, "ht")) != -1) {
 		switch (opt) {
@@ -71,27 +72,39 @@ int main(int argc, char** argv) {
 	switch (op) {
 		case 1:
 			printf("Performing addition\n");
-			// result = add(x, y);
+			result = add(x, y);
 			break;
 		case 2:
 			printf("Performing subtraction\n");
-			// result = subtract(x, y);
+			result = subtract(x, y);
 			break;
 		case 3:
 			printf("Performing multiplication\n");
-			// result = multiply(x, y);
+			result = multiply(x, y);
 			break;
 		case 4:
 			printf("Performing division\n");
-			// result = divide(x, y);
+			result = divide(x, y);
 			break;
 		case 5:
 			printf("Performing modulus\n");
-			// result = modulus(x, y);
+			result = modulus(x, y);
 			break;
 		default:
 			fprintf(stderr, "%d is an invalid option\n", op);
 			exit(1);
 	}
+
+	// print result
+	printf("%d %c %d = %d\n", x, signs[op - 1], y, result);
 }
 
+int add(int x, int y) { return (x + y); }
+
+int subtract(int x, int y) { return (x - y); }
+
+int multiply(int x, int y) { return (x * y); }
+
+int divide(int x, int y) { return (x / y); }
+
+int modulus(int x, int y) { return (x % y); }
