@@ -60,8 +60,38 @@ int main(int argc, char** argv) {
 	int y;
 	scanf("%d %d %d", &op, &x, &y);
 
-	printf("input 1 is: %d\n", op);
-	printf("input 2 is: %d\n", x);
-	printf("input 3 is: %d\n", y);
+	if (op >= 1 && op <= 5) {
+		printf("\nOperation: %c\n", signs[op - 1]);
+	} else {
+		printf("Operation: invalid\n");
+	}
+	printf("Operand 1: %d\n", x);
+	printf("Operand 2: %d\n\n", y);
+
+	switch (op) {
+		case 1:
+			printf("Performing addition\n");
+			// result = add(x, y);
+			break;
+		case 2:
+			printf("Performing subtraction\n");
+			// result = subtract(x, y);
+			break;
+		case 3:
+			printf("Performing multiplication\n");
+			// result = multiply(x, y);
+			break;
+		case 4:
+			printf("Performing division\n");
+			// result = divide(x, y);
+			break;
+		case 5:
+			printf("Performing modulus\n");
+			// result = modulus(x, y);
+			break;
+		default:
+			fprintf(stderr, "%d is an invalid option\n", op);
+			exit(1);
+	}
 }
 
