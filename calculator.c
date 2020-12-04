@@ -31,8 +31,13 @@ int main(int argc, char** argv) {
 	// if help option is selected, display instructions
 	// for running the program
 	if (hflag) {
-		printf("Program Help:\n");
-		// add more instructions here
+		printf("\nProgram Help:\n\n");
+		printf("In this program, the user can choose an arithmetic ");
+		printf("operation to perform by entering the number next to ");
+		printf("the option they would like to choose.\n");
+		printf("For example, enter \'4\' to perform a division operation.\n");
+		printf("After entering the option number, enter two integer ");
+		printf("operands, separated by whitespace, on which to perform the operation.\n\n");
 	}
 
 	// if test option is selected, run all tests
