@@ -5,7 +5,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "calculator.h"
+#include "mathOps.h"
+#include "tests.h"
 
 int main(int argc, char** argv) {
 	int hflag = 0;
@@ -17,11 +18,9 @@ int main(int argc, char** argv) {
 		switch (opt) {
 			case 'h':
 				hflag = 1;
-				printf("h flag set\n");
 				break;
 			case 't':
 				tflag = 1;
-				printf("t flag set\n");
 				break;
 			default:
 				abort();
@@ -38,7 +37,9 @@ int main(int argc, char** argv) {
 	// if test option is selected, run all tests
 	if (tflag) {
 		printf("Commencing unit tests\n");
-		// runTests();
+		runTests();
+		printf("All tests passed\n");
+		return;
 	}
 
 	// prompt user to choose operation and enter two operands
@@ -57,8 +58,7 @@ int main(int argc, char** argv) {
 	// check for valid input
 	int op;
 	char signs[] = {'+', '-', '*', '/', '%'};
-	int x;
-	int y;
+	int x, y;
 	scanf("%d %d %d", &op, &x, &y);
 
 	if (op >= 1 && op <= 5) {
@@ -92,19 +92,11 @@ int main(int argc, char** argv) {
 			break;
 		default:
 			fprintf(stderr, "%d is an invalid option\n", op);
-			exit(1);
+			exit(EXIT_FAILURE);
 	}
 
 	// print result
 	printf("%d %c %d = %d\n", x, signs[op - 1], y, result);
+	return EXIT_SUCCESS;
 }
 
-int add(int x, int y) { return (x + y); }
-
-int subtract(int x, int y) { return (x - y); }
-
-int multiply(int x, int y) { return (x * y); }
-
-int divide(int x, int y) { return (x / y); }
-
-int modulus(int x, int y) { return (x % y); }
