@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "mathOps.h"
 #include "tests.h"
 
@@ -39,7 +40,6 @@ int main(int argc, char** argv) {
 		printf("Commencing unit tests\n");
 		runTests();
 		printf("All tests passed\n");
-		return;
 	}
 
 	// prompt user to choose operation and enter two operands
@@ -48,7 +48,7 @@ int main(int argc, char** argv) {
 	printf("2. Subtraction \t\tA - B\n");
 	printf("3. Multiplication \tA * B\n");
 	printf("4. Division \t\tA / B\n");
-	printf("5. Modulus \t\tA \% B\n");
+	printf("5. Modulus \t\tA %% B\n");
 
 	printf("\nEnter the number of the option you would like to choose");
 	printf(" as well as two integer operands, separated by spaces\n");
