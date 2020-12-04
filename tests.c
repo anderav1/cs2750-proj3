@@ -6,7 +6,7 @@ void testAdd() {
 	int x = 10;
 	int y = 20;
 
-	if ((x + y) != add(x, y)) {
+	if (add(x, y) != 30) {
 		fprintf(stderr, "testAdd has failed for %d + %d\n", x, y);
 		exit(1);
 	}
@@ -50,7 +50,7 @@ void testAdd() {
 		exit(1);
 	}
 	
-	printf("All addition tests successful\n");
+	printf("\tAll addition tests successful\n");
 	return;
 }
 
@@ -107,12 +107,57 @@ void testSubtract() {
 		exit(1);
 	}
 
-	printf("All subtraction tests successful\n");
+	printf("\tAll subtraction tests successful\n");
 	return;
 }
 
 void testMultiply() {
+	int x = 3;
+	int y = 5;
 
+	if (multiply(x, y) != 15) {
+		fprintf(stderr, "testMultiply has failed for %d * %d\n", x, y);
+		exit(1);
+	}
+
+	// test commutativity
+	if (multiply(x, y) != multiply(y, x)) {
+		fprintf(stderr, "Multiplication has failed commutativity test\n");
+		exit(1);
+	}
+
+	// test identity
+	if (multiply(x, 1) != x) {
+		fprintf(stderr, "Multiplication has failed identity test\n");
+		exit(1);
+	}
+	
+	// test zero property
+	if (multiply(x, 0) != 0) {
+		fprintf(stderr, "Multiplication has failed zero property test\n");
+		exit(1);
+	}
+
+	// test negation
+	if (multiply(x, -1) != (0 - x)) {
+		fprintf(stderr, "Multiplication has failed negation test\n");
+		exit(1);
+	}
+
+	// test multiplication of positive and negative values
+
+	if (multiply(-3, -9) != multiply(3, 9)) {
+		fprintf(stderr, "testMultiply failed for -3 * -9\n");
+		exit(1);
+	}
+	
+	if (multiply(-3, 9) != -27) {
+		fprintf(stderr, "testMultiply failed for -3 * 9\n");
+		exit(1);
+	}
+
+	printf("\tAll multiplication tests successful\n");
+	return;
 }
 
 void testDivide() {
@@ -127,7 +172,7 @@ void runTests() {
 	printf("\nCommencing unit tests...\n");
 	testAdd();
 	testSubtract();
-	// testMultiply();
+	testMultiply();
 	// testDivide();
 	// testModulus();
 	printf("All tests passed.\n");
