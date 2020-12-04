@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "mathOps.h"
 
 void testAdd() {
 	int x = 10;
@@ -48,7 +49,8 @@ void testAdd() {
 		fprintf(stderr, "testAdd has failed for 2 + -3\n");
 		exit(1);
 	}
-
+	
+	printf("All addition tests successful\n");
 	return;
 }
 
@@ -105,6 +107,7 @@ void testSubtract() {
 		exit(1);
 	}
 
+	printf("All subtraction tests successful\n");
 	return;
 }
 
@@ -121,9 +124,11 @@ void testModulus() {
 }
 
 void runTests() {
+	printf("\nCommencing unit tests...\n");
 	testAdd();
 	testSubtract();
 	// testMultiply();
 	// testDivide();
 	// testModulus();
+	printf("All tests passed.\n");
 }

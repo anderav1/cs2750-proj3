@@ -1,14 +1,11 @@
-GCC = gcc
+CC = gcc
 CFLAGS = -g -Wall -Wshadow
+DEPS = mathOps.h mathOps.c tests.h tests.c calculator.c
+OBJ = mathOps.o tests.o calculator.o
 
-calculator: mathOps.o tests.o calculator.o
-	$(GCC) $(CFLAGS) mathOps.o  tests.o calculator.o -o calculator
+%.o: %.c $(DEPS)
+	$(CC) $(CFLAGS) -c -o $@ $<
 
-mathOps.o: mathOps.c mathOps.h
-	$(GCC) $(CFLAGS) -c mathOps.c mathOps.h
+calculator: $(OBJ)
+	gcc $(CFLAGS) -o $@ $^
 
-tests.o: tests.c tests.h
-	$(GCC) $(CFLAGS) -c tests.c tests.h
-
-calculator.o: calculator.c
-	$(GCC) $(CFLAGS) -c calculator.c

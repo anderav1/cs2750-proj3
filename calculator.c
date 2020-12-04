@@ -1,7 +1,8 @@
 // Lexi Anderson
 // CS 2750
 // Project 3
-// Calculator program
+// Calculator program -- perform integer addition, subtraction, multiplication,
+// division, or modulus
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -28,8 +29,7 @@ int main(int argc, char** argv) {
 		}
 	}
 	
-	// if help option is selected, display instructions
-	// for running the program
+	// if help flag is set, display instructions for running the program
 	if (hflag) {
 		printf("\nProgram Help:\n\n");
 		printf("In this program, the user can choose an arithmetic ");
@@ -40,12 +40,8 @@ int main(int argc, char** argv) {
 		printf("operands, separated by whitespace, on which to perform the operation.\n\n");
 	}
 
-	// if test option is selected, run all tests
-	if (tflag) {
-		printf("Commencing unit tests\n");
-		runTests();
-		printf("All tests passed\n");
-	}
+	// if test flag is set, run all tests
+	if (tflag) { runTests(); }
 
 	// prompt user to choose operation and enter two operands
 	printf("\nArithmetic Operations:\n\n");
