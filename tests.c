@@ -161,11 +161,88 @@ void testMultiply() {
 }
 
 void testDivide() {
+	int x = 18;
+	int y = 3;
 
+	if (divide(x, y) != 6) {
+		fprintf(stderr, "testDivide failed for 18 / 3\n");
+		exit(1);
+	}
+
+	// test identity
+	if (divide(x, 1) != x) {
+		fprintf(stderr, "Division has failed identity test\n");
+		exit(1);
+	}
+
+	if (divide(x, x) != 1) {
+		fprintf(stderr, "Division has failed identity test\n");
+		exit(1);
+	}
+
+	// test negation
+	if (divide(x, -1) != (0 - x)) {
+		fprintf(stderr, "Division has failed negation test\n");
+		exit(1);
+	}
+
+	if (divide(y, x) != 0) {
+		fprintf(stderr, "testDivide failed for 3 / 18\n");
+		exit(1);
+	}
+	
+	if (divide(19, 3) != 6) {
+		fprintf(stderr, "testDivide failed for 19 / 3\n");
+		exit(1);
+	}
+
+	if (divide(17, 3) != 5) {
+		fprintf(stderr, "testDivide failed for 17 / 3\n");
+		exit(1);
+	}
+
+	// test with positive and negative values
+	
+	if (divide(14, -6) != -2) {
+		fprintf(stderr, "testDivide failed for 14 / -6\n");
+		exit(1);
+	}
+
+	if (divide(-14, -6) != divide(14, 6)) {
+		fprintf(stderr, "testDivide failed for -14 / -6\n");
+		exit(1);
+	}
+
+	if (divide(-14, 6) != divide(14, -6)) {
+		fprintf(stderr, "testDivide failed for -14 / 6\n");
+		exit(1);
+	}
+
+	printf("\tAll division tests successful\n");
+	return;
 }
 
 void testModulus() {
+	int x = 18;
+	int y = 3;
 
+	if (modulus(x, y) != 0) {
+		fprintf(stderr, "testModulus failed for 18 %% 3\n");
+		exit(1);
+	}
+
+	if (modulus(17, 3) != 2) {
+		fprintf(stderr, "testModulus failed for 17 %% 3\n");
+		exit(1);
+	}
+
+	if (modulus(y, x) != y) {
+		fprintf(stderr, "testModulus failed for 3 %% 18\n");
+		exit(1);
+	}
+
+	printf("\tAll modulus tests successful\n");
+	return;
 }
 
 void runTests() {
@@ -173,7 +250,7 @@ void runTests() {
 	testAdd();
 	testSubtract();
 	testMultiply();
-	// testDivide();
-	// testModulus();
+	testDivide();
+	testModulus();
 	printf("All tests passed.\n");
 }
